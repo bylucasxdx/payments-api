@@ -18,4 +18,5 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api/v1/public/'], function() use ($router) {
 	$router->post('/payment', 'PaymentController@transaction');
+	
 });
