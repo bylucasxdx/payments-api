@@ -1,21 +1,17 @@
-# Lumen PHP Framework
+# Payments API
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+## Get Started
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### Requirements
+- [Composer](https://getcomposer.org/)
 
-## Official Documentation
+### Instalation
+1. Clone the project using `git clone https://github.com/bylucasxdx/payments-api.git`
+2. Inside the folder Install the dependencies using the command `composer install`.
+3. Run the project using this command `php -S localhost:8000 -t public`
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+### Documentation
+- [Docs](https://documenter.getpostman.com/view/3314307/RWgm52Ti)
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+### Tests
+If you will run this project using localhost, can you change the docs url for your `http://localhost:8000`

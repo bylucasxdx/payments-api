@@ -31,7 +31,7 @@ class PaymentController extends Controller
         //     ]
         // ]);
         // $res->getStatusCode();
-        // $res->getHeader('content-type'));
+        // $res->getHeader('content-type');
         // $res->getBody();
 
         // GROUP THE CREDIT CARD DATA 
@@ -47,20 +47,19 @@ class PaymentController extends Controller
         }
 
         // ENVIA PARA A API DE AUDITORIA
-        $auditData = array(
-            'source' => 'payment-api', 
-            'creditCard' => $creditCard
-        );
+        $ch = curl_init("http://localhost:5000/api/v1/public/audits/credit-card-transaction");
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'message=this is a message to method audit');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $responseAudit = json_decode(curl_exec($ch), true);
+        $responseAuditCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
 
-        // $urlBaseAudit = "http://localhost:3000/api/v1/public/audit";
-
-        // $client = new Client();
-        // $res = $client->request('POST', $urlBaseAudit, [
-        //     'form_params' => $auditData
-        // ]);
-        // $res->getStatusCode();
-        // $res->getHeader('content-type'));
-        // $res->getBody();
+        if ($responseAuditCode != 201) {
+            return response()->json(
+                $responseAudit
+            , $responseAuditCode);
+        }
 
         return response()->json(
             ['mensagem' => 'Pagamento concluido!']
