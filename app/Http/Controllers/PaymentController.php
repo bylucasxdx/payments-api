@@ -47,19 +47,29 @@ class PaymentController extends Controller
         }
 
         // ENVIA PARA A API DE AUDITORIA
-        $ch = curl_init("http://localhost:5000/api/v1/public/audits/credit-card-transaction");
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, 'message=this is a message to method audit');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $responseAudit = json_decode(curl_exec($ch), true);
-        $responseAuditCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
+        // $ch = curl_init("http://localhost:5000/api/v1/public/audits/credit-card-transaction");
+        // curl_setopt($ch, CURLOPT_POST, TRUE);
+        // curl_setopt($ch, CURLOPT_POSTFIELDS, 'message=this is a message to method audit');
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // $responseAudit = json_decode(curl_exec($ch), true);
+        // $responseAuditCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        // curl_close($ch);
 
-        if ($responseAuditCode != 201) {
-            return response()->json(
-                $responseAudit
-            , $responseAuditCode);
-        }
+        // if ($responseAuditCode != 201) {
+        //     return response()->json(
+        //         $responseAudit
+        //     , $responseAuditCode);
+        // }
+
+        return response()->json(
+            ['mensagem' => 'Pagamento concluido!']
+        , 200);
+    }
+
+    public function teste(Request $request) {
+        // echo '<pre>';
+        // print_r($request);
+        // echo '</pre>';
 
         return response()->json(
             ['mensagem' => 'Pagamento concluido!']
